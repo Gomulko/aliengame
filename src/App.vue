@@ -10,7 +10,7 @@
 
       <button @click="pickCharacter">Pick your character</button>
     </GamestateStart>
-
+    <GamestateFinish v-else-if="uiState === 'won' || uiState === 'lost'" />
     <section v-else>
       <svg viewBox="0 -180 1628 1180" class="main">
         <defs>
@@ -74,10 +74,12 @@ import Baker from "./components/Baker.vue";
 import Mechanic from "./components/Mechanic.vue";
 import Score from "./components/Score.vue";
 import Zombie from "./components/Zombie.vue";
+import GamestateFinish from "./components/GamestateFinish.vue";
 
 export default {
   components: {
     GamestateStart,
+    GamestateFinish,
     Friend,
     Artist,
     Baker,
@@ -171,8 +173,8 @@ svg.main,
 .friendtalk {
   position: absolute;
   z-index: 1000;
-  top: 300px;
-  left: 265px;
+  top: 309px;
+  left: 1071px;
   width: 200px;
 }
 
@@ -201,7 +203,7 @@ text {
   position: absolute;
   z-index: 1000;
   top: 445px;
-  left: 665px;
+  right: 1225px;
   width: 200px;
   height: 200px;
   display: flex;

@@ -49,11 +49,22 @@ export default createStore({
   getters: {
   },
   mutations: {
+    resetGame(state) {
+      state.uiState = 'start'
+      state.score = 0
+      state.questionIndex = 0
+    },
     updateCharacter(state, choice) {
       state.character = choice
     },
     updateUIState(state, uistate) {
       state.uiState = uistate
+    },
+    resetScore(state, score) {
+      state.score = score
+    },
+    resetQuestionIndex(state, questionIndex) {
+      state.questionIndex = questionIndex
     },
     pickQuestion(state, character) {
       character === state.character ? state.score += 13 : state.score -= 13
